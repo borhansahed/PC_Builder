@@ -1,12 +1,9 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import Navbar from "@/components/navbar/Navbar";
 
 export default function Home() {
   return (
     <>
-      <h1>Hello Pc Builder</h1>
+      <Navbar />
     </>
   );
 }
