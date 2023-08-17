@@ -1,19 +1,56 @@
 import { DownOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Dropdown, message, Space } from "antd";
+import Link from "next/link";
 
 const items: MenuProps["items"] = [
   {
-    label: "1st menu item",
+    label: (
+      <Link className="text-lg font-medium" href={`${"/category/cpu"}`}>
+        Cpu
+      </Link>
+    ),
     key: "1",
   },
   {
-    label: "2nd menu item",
+    label: (
+      <Link className="text-lg font-medium" href={`${"/category/motherboard"}`}>
+        Motherboard
+      </Link>
+    ),
     key: "2",
   },
   {
-    label: "3rd menu item",
+    label: (
+      <Link className="text-lg font-medium" href={`${"/category/ram"}`}>
+        Ram
+      </Link>
+    ),
     key: "3",
+  },
+  {
+    label: (
+      <Link className="text-lg font-medium" href={`${"/category/powerSupply"}`}>
+        Power Supply
+      </Link>
+    ),
+    key: "4",
+  },
+  {
+    label: (
+      <Link className="text-lg font-medium" href={`${"/category/monitor"}`}>
+        Monitor
+      </Link>
+    ),
+    key: "5",
+  },
+  {
+    label: (
+      <Link className="text-lg font-medium" href={`${"/category/other"}`}>
+        Other
+      </Link>
+    ),
+    key: "6",
   },
 ];
 const onClick: MenuProps["onClick"] = ({ key }) => {
@@ -21,7 +58,7 @@ const onClick: MenuProps["onClick"] = ({ key }) => {
 };
 
 const DropdownMenu: React.FC = () => (
-  <Dropdown overlayStyle={{ fontSize: "40px" }} menu={{ items, onClick }}>
+  <Dropdown menu={{ items, onClick }}>
     <a
       onClick={(e) => {
         e.preventDefault();
@@ -29,7 +66,7 @@ const DropdownMenu: React.FC = () => (
     >
       <Space className="text-xl ">
         Category
-        <DownOutlined className="text-base mt[-12px]" />
+        <DownOutlined className="text-base mt[-14px]" />
       </Space>
     </a>
   </Dropdown>

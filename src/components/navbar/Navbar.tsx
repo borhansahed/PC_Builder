@@ -3,7 +3,7 @@ import DropdownMenu from "./Dropdown";
 const Navbar = () => {
   return (
     <>
-      <nav className=" bg-[#0C356A] text-white">
+      <nav className=" bg-custom z-50 text-white sticky top-0">
         <section className="flex justify-between px-32 py-3 items-center">
           <div className="flex items-center">
             <p className="text-6xl font-bold">
