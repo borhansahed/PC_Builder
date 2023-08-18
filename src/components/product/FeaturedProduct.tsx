@@ -1,6 +1,10 @@
+import { IProduct } from "@/types/product.interface";
 import Product from "./Product";
 
-const FeaturedProduct = () => {
+interface IProps {
+  products: IProduct[];
+}
+const FeaturedProduct = ({ products }: IProps) => {
   return (
     <>
       <section className="mt-32">
@@ -8,17 +12,17 @@ const FeaturedProduct = () => {
           Featured Product
         </h1>
 
-        <div className="flex mt-24 px-32 justify-center flex-wrap gap-x-64 gap-y-10">
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+        <div className="flex mt-24 px-32 justify-center flex-wrap gap-x-32 gap-y-10">
+          {products.slice(0, 6).map((item: IProduct) => {
+            return (
+              <>
+                <Product key={item._id} product={item} />
+              </>
+            );
+          })}
         </div>
       </section>
     </>
   );
 };
-
 export default FeaturedProduct;

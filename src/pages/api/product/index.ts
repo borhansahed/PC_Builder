@@ -14,7 +14,6 @@ export default async function handler(
 ) {
   try {
     await connectMongo();
-    console.log(req.query);
     const result = await ProductModel.find(req.query);
     res.status(200).json({ data: result });
   } catch (err) {

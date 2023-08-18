@@ -1,17 +1,26 @@
-import { Card } from "antd";
-import Image from "next/image";
+import { IProduct } from "@/types/product.interface";
+import { Card, Image } from "antd";
+import Link from "next/link";
+
 const { Meta } = Card;
-const Product = () => {
-  const img = "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png";
+interface IProps {
+  product: IProduct;
+}
+const Product = ({ product }: IProps) => {
   return (
     <>
-      <Card
-        className="w-[240px]"
-        hoverable
-        cover={<img className="w-[100]" src={img} alt="example" />}
-      >
-        <Meta title="Europe Street beat" description="www.instagram.com" />
-      </Card>
+      <Link href={`/category/product/${product._id}`}>
+        <Card
+          className="w-[320px] h-auto"
+          hoverable
+          cover={<Image src={product.image} alt="product" height={200} />}
+        >
+          <Meta title={product.productname} description={product.category} />
+          <p className="text-lg text-custom font-bold mt-2">{product.price}</p>
+          <p className="text-base font-medium">{product.status}</p>
+          <p>{product.rating}</p>
+        </Card>
+      </Link>
     </>
   );
 };

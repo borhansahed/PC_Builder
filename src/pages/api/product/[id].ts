@@ -13,6 +13,7 @@ export default async function dynamicProductId(
 ) {
   try {
     await connectMongo();
+    console.log(req.query.id);
     const result = await ProductModel.findById(req.query.id);
     res.status(200).json({ data: result });
   } catch (err) {

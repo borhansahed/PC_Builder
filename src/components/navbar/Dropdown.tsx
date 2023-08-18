@@ -64,12 +64,9 @@ const items: MenuProps["items"] = [
     key: "7",
   },
 ];
-const onClick: MenuProps["onClick"] = ({ key }) => {
-  message.info(`Click on item ${key}`);
-};
 
 const DropdownMenu: React.FC = () => (
-  <Dropdown menu={{ items, onClick }}>
+  <Dropdown menu={{ items }}>
     <a
       onClick={(e) => {
         e.preventDefault();
