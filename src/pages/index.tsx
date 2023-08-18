@@ -8,7 +8,6 @@ import Footer from "@/components/footer/Footer";
 export default function Home() {
   return (
     <>
-      <Navbar />
       <Image
         className="object-fill
          w-[100%] h-[800px]"
@@ -17,7 +16,6 @@ export default function Home() {
       />
       <FeaturedProduct />
       <FeaturedCategory />
-      <Footer />
     </>
   );
 }

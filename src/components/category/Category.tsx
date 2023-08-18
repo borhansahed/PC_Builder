@@ -1,15 +1,22 @@
-import { Card } from "antd";
+import { Card, Image } from "antd";
+import Link from "next/link";
 const { Meta } = Card;
-const Category = () => {
-  const img = "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png";
+
+interface IProps {
+  img: string;
+  title: string;
+}
+const Category = ({ img, title }: IProps) => {
   return (
     <>
       <Card
         className="w-[240px]"
         hoverable
-        cover={<img className="w-[100]" src={img} alt="example" />}
+        cover={<Image src={img} alt="example" height={200} />}
       >
-        <Meta title="Europe Street beat" description="www.instagram.com" />
+        <Link href={`/category/${title}`}>
+          <Meta title={title} />
+        </Link>
       </Card>
     </>
   );

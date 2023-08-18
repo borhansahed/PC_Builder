@@ -6,7 +6,7 @@ import Link from "next/link";
 const items: MenuProps["items"] = [
   {
     label: (
-      <Link className="text-lg font-medium" href={`${"/category/cpu"}`}>
+      <Link className="text-lg font-medium" href={`${"/category/CPU"}`}>
         Cpu
       </Link>
     ),
@@ -14,7 +14,7 @@ const items: MenuProps["items"] = [
   },
   {
     label: (
-      <Link className="text-lg font-medium" href={`${"/category/motherboard"}`}>
+      <Link className="text-lg font-medium" href={`${"/category/Motherboard"}`}>
         Motherboard
       </Link>
     ),
@@ -22,7 +22,7 @@ const items: MenuProps["items"] = [
   },
   {
     label: (
-      <Link className="text-lg font-medium" href={`${"/category/ram"}`}>
+      <Link className="text-lg font-medium" href={`${"/category/Ram"}`}>
         Ram
       </Link>
     ),
@@ -30,7 +30,10 @@ const items: MenuProps["items"] = [
   },
   {
     label: (
-      <Link className="text-lg font-medium" href={`${"/category/powerSupply"}`}>
+      <Link
+        className="text-lg font-medium"
+        href={`${"/category/Power Supply"}`}
+      >
         Power Supply
       </Link>
     ),
@@ -38,7 +41,7 @@ const items: MenuProps["items"] = [
   },
   {
     label: (
-      <Link className="text-lg font-medium" href={`${"/category/monitor"}`}>
+      <Link className="text-lg font-medium" href={`${"/category/Monitor"}`}>
         Monitor
       </Link>
     ),
@@ -46,11 +49,19 @@ const items: MenuProps["items"] = [
   },
   {
     label: (
-      <Link className="text-lg font-medium" href={`${"/category/other"}`}>
-        Other
+      <Link className="text-lg font-medium" href={`${"/category/Storage"}`}>
+        Storage
       </Link>
     ),
     key: "6",
+  },
+  {
+    label: (
+      <Link className="text-lg font-medium" href={`${"/category/Others"}`}>
+        Other
+      </Link>
+    ),
+    key: "7",
   },
 ];
 const onClick: MenuProps["onClick"] = ({ key }) => {
