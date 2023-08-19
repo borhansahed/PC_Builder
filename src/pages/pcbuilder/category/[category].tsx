@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import React from "react";
 import { IProduct } from "@/types/product.interface";
@@ -31,7 +31,7 @@ const CategoryItem = ({ product }: IProps) => {
 export default CategoryItem;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(`http://localhost:3000/api/product`);
+  const res = await fetch(`https://pcbuilder-nu.vercel.app/api/product`);
   const products = await res.json();
   const paths = products.data.map((product: IProduct) => ({
     params: { category: product.category },
@@ -39,11 +39,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return { paths, fallback: false };
 };
-export const getStaticProps: GetStaticProps = async (context) => {
+export const  getStaticProps: GetStaticProps  = async (context) => {
   const { params } = context;
 
   const data = await fetch(
-    `http://localhost:3000/api/product?category=${params?.category}`
+    `https://pcbuilder-nu.vercel.app/api/product?category=${params?.category}`
   );
   const product = await data.json();
 

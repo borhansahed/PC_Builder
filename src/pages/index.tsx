@@ -3,6 +3,7 @@ import banner from "../../public/pcbuilder.png";
 import FeaturedProduct from "@/components/product/FeaturedProduct";
 import FeaturedCategory from "@/components/category/FeaturedCategory";
 import { IProduct } from "@/types/product.interface";
+import { GetStaticProps } from "next";
 interface IProps {
   products: IProduct[];
 }
@@ -21,8 +22,8 @@ export default function Home({ products }: IProps) {
   );
 }
 
-export const getStaticProps = async () => {
-  const data = await fetch(`http://localhost:3000/api/product`);
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await fetch(`https://pcbuilder-nu.vercel.app/api/product`);
   const product = await data.json();
   return {
     props: {

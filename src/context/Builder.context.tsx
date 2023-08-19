@@ -26,7 +26,7 @@ type ActionType =
   | "Ram"
   | "Motherboard"
   | "Storage"
-  | "Power Supply"
+  | "PowerSupply"
   | "Monitor"
   | "Others";
 
@@ -41,7 +41,7 @@ const reducer = (state: IState, action: Action) => {
     case "Ram":
     case "Motherboard":
     case "Storage":
-    case "Power Supply":
+    case "PowerSupply":
     case "Monitor":
     case "Others": {
       return {

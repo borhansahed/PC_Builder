@@ -1,6 +1,6 @@
 import { IProduct } from "@/types/product.interface";
 import { Image } from "antd";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
 
 interface IProps {
   product: IProduct;
@@ -68,18 +68,19 @@ const ProductDetails = ({ product }: IProps) => {
 export default ProductDetails;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(`http://localhost:3000/api/product`);
+  const res = await fetch(`https://pcbuilder-nu.vercel.app/api/product`);
   const products = await res.json();
   const paths = products.data.map((product: IProduct) => ({
-    params: { id: product._id?.toString() },
+    params: { slug: product._id },
   }));
 
   return { paths, fallback: false };
 };
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { params } = context;
 
-  const data = await fetch(`http://localhost:3000/api/product/${params?.id}`);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const data = await fetch(
+    `https://pcbuilder-nu.vercel.app/api/product/${params?.slug}`
+  );
   const product = await data.json();
 
   return {

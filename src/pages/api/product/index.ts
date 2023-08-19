@@ -14,8 +14,11 @@ export default async function handler(
 ) {
   try {
     await connectMongo();
-    const result = await ProductModel.find(req.query);
-    res.status(200).json({ data: result });
+
+    if (req.method === "GET") {
+      const result = await ProductModel.find(req.query);
+      res.status(200).json({ data: result });
+    }
   } catch (err) {
     res.status(500).send(err as any);
   }

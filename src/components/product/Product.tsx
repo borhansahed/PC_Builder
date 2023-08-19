@@ -13,6 +13,7 @@ interface IProps {
 const Product = ({ product, flag = false }: IProps) => {
   const { dispatch } = useContext(builderContext);
   const router = useRouter();
+  const formattedKey = product.category.replace(/\s+/g, ''); 
 
   return (
     <>
@@ -28,7 +29,7 @@ const Product = ({ product, flag = false }: IProps) => {
           <p>{product.rating}</p>
           <button
             onClick={() => {
-              dispatch({ type: `${product.category}`, value: product });
+              dispatch({ type: `${formattedKey}`, value: product });
               router.push("/pcbuilder");
             }}
             className="bg-custom w-full text-white mt-6 px-4 py-3 rounded-md font-bold"

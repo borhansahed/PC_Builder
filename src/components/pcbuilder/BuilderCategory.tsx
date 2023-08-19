@@ -55,37 +55,49 @@ const BuilderCategory = ({ components }: { components: IState }) => {
       <section className="flex flex-col mt-14 items-center gap-y-10">
         {category.map((item) => {
           const { title } = item;
+          const formattedKey = title.replace(/\s+/g, "");
           return (
             <>
               <article
                 key={item.key + (Math.random() / 34) * 3}
-                className="flex justify-between items-center rounded-lg w-[500px] border border-custom"
+                className=" rounded-lg w-[500px] border border-custom pb-3"
               >
-                <div className="flex gap-6">
-                  <Image
-                    className="rounded-lg"
-                    src={item.image}
-                    alt="category"
-                    width={100}
-                    height={100}
-                  />
-                  <h1 className=" text-custom font-bold ">{item.title}</h1>
-                </div>
+                <div className="flex justify-between items-center">
+                  <div className="flex gap-6">
+                    <Image
+                      className="rounded-lg"
+                      src={item.image}
+                      alt="category"
+                      width={100}
+                      height={100}
+                    />
+                    <h1 className=" text-custom font-bold ">{item.title}</h1>
+                  </div>
 
-                <Link href={`/pcbuilder/category/${item.title}`}>
-                  <button className="bg-custom text-white h-10  px-4  rounded-md font-bold mr-3">
-                    Choose
-                  </button>
-                </Link>
+                  <Link href={`/pcbuilder/category/${item.title}`}>
+                    <button className="bg-custom text-white h-10  px-4  rounded-md font-bold mr-3">
+                      Choose
+                    </button>
+                  </Link>
+                </div>
+                <hr className="mt-2" />
+
+                {components[`${formattedKey}`]?.map((item: IProduct) => {
+                  return (
+                    <>
+                      <div className="mt-4 flex justify-between">
+                        <Image src={item.image} alt="" width={60} />
+                        <h1 className="font-medium text-sm mr-72">
+                          {item.category}
+                        </h1>
+                        <p className="flex items-center font-bold text-base text-custom mr-3">
+                          {item.price}
+                        </p>
+                      </div>
+                    </>
+                  );
+                })}
               </article>
-              {components[`${title}`]?.map((item: IProduct) => {
-                return (
-                  <>
-                    <img src={item.image} alt="" width={100} />
-                    <h1>{item.category}</h1>
-                  </>
-                );
-              })}
             </>
           );
         })}
