@@ -18,9 +18,11 @@ const Navbar = () => {
             <div>
               <DropdownMenu />
             </div>
-            <button className="bg-white text-[#0C356A] px-3 py-2 rounded-lg font-bold text-xl">
-              PC BUILDER
-            </button>
+            <Link href={"/pcbuilder"}>
+              <button className="bg-white text-[#0C356A] px-3 py-2 rounded-lg font-bold text-xl">
+                PC BUILDER
+              </button>
+            </Link>
           </div>
           <div>
             <button className="bg-white text-[#0C356A] px-3 py-2 rounded-lg font-bold text-xl">

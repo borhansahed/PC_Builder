@@ -5,11 +5,12 @@ import Link from "next/link";
 const { Meta } = Card;
 interface IProps {
   product: IProduct;
+  flag: boolean;
 }
-const Product = ({ product }: IProps) => {
+const Product = ({ product, flag = false }: IProps) => {
   return (
     <>
-      <Link href={`/category/product/${product._id}`}>
+      {flag ? (
         <Card
           className="w-[320px] h-auto"
           hoverable
@@ -19,8 +20,31 @@ const Product = ({ product }: IProps) => {
           <p className="text-lg text-custom font-bold mt-2">{product.price}</p>
           <p className="text-base font-medium">{product.status}</p>
           <p>{product.rating}</p>
+          <button className="bg-custom w-full text-white mt-6 px-4 py-3 rounded-md font-bold">
+            Add To Builder
+          </button>
         </Card>
-      </Link>
+      ) : (
+        <>
+          <Link href={`/category/product/${product._id}`}>
+            <Card
+              className="w-[320px] h-auto"
+              hoverable
+              cover={<Image src={product.image} alt="product" height={200} />}
+            >
+              <Meta
+                title={product.productname}
+                description={product.category}
+              />
+              <p className="text-lg text-custom font-bold mt-2">
+                {product.price}
+              </p>
+              <p className="text-base font-medium">{product.status}</p>
+              <p>{product.rating}</p>
+            </Card>
+          </Link>
+        </>
+      )}
     </>
   );
 };

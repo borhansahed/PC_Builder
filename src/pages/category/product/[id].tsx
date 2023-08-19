@@ -21,15 +21,15 @@ const ProductDetails = ({ product }: IProps) => {
       <article className="flex justify-center   mt-16 gap-32">
         <div>
           <Image
-            className="rounded-lg"
+            className="rounded-lg object-contain"
             src={product.image}
             alt="product"
             height={450}
           />
 
-          <p className="text-2xl text-custom mt-6">Reviews:</p>
+          <p className="text-2xl text-custom mt-6 font-medium">Reviews:</p>
           <ul>
-            {reviews.map((item: string) => {
+            {reviews?.map((item: string) => {
               return (
                 <li className="text-base" key={(Math.random() * 103) / 3}>
                   * {item}
@@ -48,9 +48,10 @@ const ProductDetails = ({ product }: IProps) => {
           <p>{status}</p>
           <p>{price}</p>
           <p className="w-64">{description}</p>
-          <p className="text-2xl text-custom mt-8">Features:</p>
+          <p className="text-custom font-bold">{rating}</p>
+          <p className="text-2xl text-custom mt-8 font-medium">Features:</p>
           <ul>
-            {features.map((item: string) => {
+            {features?.map((item: string) => {
               return (
                 <li className="text-base" key={(Math.random() * 103) / 3}>
                   * {item}

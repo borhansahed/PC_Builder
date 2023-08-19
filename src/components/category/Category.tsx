@@ -10,7 +10,7 @@ const Category = ({ img, title }: IProps) => {
   return (
     <>
       <Card
-        className="w-[240px]"
+        className="w-[300px]"
         hoverable
         cover={<Image src={img} alt="example" height={200} />}
       >
