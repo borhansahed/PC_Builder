@@ -16,7 +16,7 @@ const FeaturedProduct = ({ products }: IProps) => {
           {products.slice(0, 6).map((item: IProduct) => {
             return (
               <>
-                <Product key={item._id} product={item} />
+                <Product key={item._id} product={item} flag={false} />
               </>
             );
           })}

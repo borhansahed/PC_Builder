@@ -20,7 +20,7 @@ const CategoryItem = ({ product }: IProps) => {
         {product?.map((item: IProduct) => {
           return (
             <>
-              <Product key={item._id} product={item} />
+              <Product key={item._id} product={item} flag={false} />
             </>
           );
         })}

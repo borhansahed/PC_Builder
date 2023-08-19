@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import React from "react";
-import { Card, Image } from "antd";
 import { IProduct } from "@/types/product.interface";
 import Product from "@/components/product/Product";
 

@@ -1,6 +1,9 @@
+import { IState } from "@/context/Builder.context";
 import { Image } from "antd";
 import Link from "next/link";
 import React from "react";
+import Product from "../product/Product";
+import { IProduct } from "@/types/product.interface";
 
 const category = [
   {
@@ -46,15 +49,16 @@ const category = [
     key: "7",
   },
 ];
-const BuilderCategory = () => {
+const BuilderCategory = ({ components }: { components: IState }) => {
   return (
     <>
       <section className="flex flex-col mt-14 items-center gap-y-10">
         {category.map((item) => {
+          const { title } = item;
           return (
             <>
               <article
-                key={item.key}
+                key={item.key + (Math.random() / 34) * 3}
                 className="flex justify-between items-center rounded-lg w-[500px] border border-custom"
               >
                 <div className="flex gap-6">
@@ -74,6 +78,14 @@ const BuilderCategory = () => {
                   </button>
                 </Link>
               </article>
+              {components[`${title}`]?.map((item: IProduct) => {
+                return (
+                  <>
+                    <img src={item.image} alt="" width={100} />
+                    <h1>{item.category}</h1>
+                  </>
+                );
+              })}
             </>
           );
         })}
